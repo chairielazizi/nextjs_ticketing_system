@@ -14,6 +14,7 @@ const config: Config = {
         nav: "#18222f",
         page: "#2b3441",
         card: "#475166",
+        "default-text": "#f1f3f5",
       },
     },
   },
