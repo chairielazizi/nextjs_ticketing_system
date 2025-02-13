@@ -1,3 +1,20 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"]
+  "extends": ["next/core-web-vitals", "next/typescript"],
+  "rules": {
+    // "@typescript-eslint/ban-types": ["error", {
+    //   "types": {
+    //     "{}": {
+    //       "message": "Use 'object' type instead of '{}'.",
+    //       "fixWith": "object"
+    //     }
+    //   }
+    // }]
+    "@typescript-eslint/no-empty-interface": [
+        "warn",
+        {
+          "allowSingleExtends": true,
+          "allowEmpty": true
+        }
+      ]
+  }
 }
