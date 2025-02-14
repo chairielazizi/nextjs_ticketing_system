@@ -4,7 +4,7 @@ import { API_URL } from "@/libs/config";
 
 type Props = {};
 
-interface Ticket {
+export interface Ticket {
   _id: string;
   title: string;
   description: string;
@@ -12,6 +12,7 @@ interface Ticket {
   priority: number;
   progress: number;
   status: string;
+  createdAt: string;
 }
 
 const getAllTickets = async () => {
