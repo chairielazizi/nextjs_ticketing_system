@@ -3,12 +3,12 @@ POST http://localhost:3000/api/tickets
 Content-Type: application/json
 
 {
-    "title": "Laptop ada connectivity problem",
-    "description": "Laptop tak boleh connect internet",
-    "priority": 5,
-    "progress": 0,
-    "status": "open",
-    "active": true
+    "title": "Perut lapar",
+    "description": "Duit tak cukup nak beli makanan",
+    "category": "Other",
+    "priority": 2,
+    "progress": 90,
+    "status": "done"
 }
 
 ###
