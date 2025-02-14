@@ -16,7 +16,7 @@ const Nav = (props: Props) => {
         </Link>
       </div>
       <div>
-        <p className="text-default-text">test@email.com</p>
+        <p className="text-emerald-400">Airiel's Ticketing System</p>
       </div>
     </nav>
   );

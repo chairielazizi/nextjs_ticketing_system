@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Kanit, Inter } from "next/font/google";
 import "./globals.css";
 import Nav from "./(components)/Nav";
 
@@ -13,6 +14,16 @@ const geistMono = localFont({
   variable: "--font-geist-mono",
   weight: "100 900",
 });
+const kanit = Kanit({
+  subsets: ["latin"],
+  weight: "300",
+  display: "swap",
+  variable: "--font-kanit",
+});
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Airiel's Ticketing App",
@@ -25,7 +36,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={kanit.className}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
