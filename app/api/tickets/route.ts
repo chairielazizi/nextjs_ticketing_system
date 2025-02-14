@@ -34,7 +34,7 @@ export async function GET() {
   try {
     const tickets = await Ticket.find();
     if (tickets) {
-      return NextResponse.json(tickets, { status: 200 });
+      return NextResponse.json({ tickets }, { status: 200 });
     } else {
       return NextResponse.json(
         { message: "No tickets found from backend" },
