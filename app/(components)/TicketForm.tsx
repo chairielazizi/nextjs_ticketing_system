@@ -2,10 +2,14 @@
 
 import React from "react";
 import { useRouter } from "next/navigation";
+import { Ticket } from "../page";
 
-type Props = {};
+type Props = {
+  ticket: Ticket;
+};
 
-const TicketForm = (props: Props) => {
+const TicketForm = ({ ticket }: Props) => {
+  const EDITMODE = ticket._id === "new" ? false : true;
   const router = useRouter();
   const handleChange = (
     e: React.ChangeEvent<
@@ -26,16 +30,29 @@ const TicketForm = (props: Props) => {
     if (!ticketData.title || !ticketData.description) {
       alert("Please fill in all fields");
     }
-    const response = await fetch(`/api/tickets`, {
-      method: "POST",
-      body: JSON.stringify(ticketData),
-      headers: { "Content-Type": "application/json" },
-    });
-    if (!response.ok) {
-      throw new Error(response.statusText);
+    if (EDITMODE) {
+      const response = await fetch(`/api/tickets/${ticket._id}`, {
+        method: "PUT",
+        body: JSON.stringify({ ticketData }),
+        headers: { "Content-Type": "application/json" },
+      });
+      if (!response.ok) {
+        throw new Error(response.statusText);
+      }
+      router.refresh();
+      router.push("/");
+    } else {
+      const response = await fetch(`/api/tickets`, {
+        method: "POST",
+        body: JSON.stringify(ticketData),
+        headers: { "Content-Type": "application/json" },
+      });
+      if (!response.ok) {
+        throw new Error(response.statusText);
+      }
+      router.refresh();
+      router.push("/");
     }
-    router.refresh();
-    router.push("/");
   };
 
   const startingTicketData = {
@@ -46,11 +63,21 @@ const TicketForm = (props: Props) => {
     status: "not started",
     category: "Hardware",
   };
+
+  if (EDITMODE) {
+    startingTicketData.title = ticket.title;
+    startingTicketData.description = ticket.description;
+    startingTicketData.priority = ticket.priority;
+    startingTicketData.progress = ticket.progress;
+    startingTicketData.status = ticket.status;
+    startingTicketData.category = ticket.category;
+  }
   const [ticketData, setTicketData] = React.useState(startingTicketData);
+
   return (
     <div>
       <form className="flex flex-col gap-3 w-1/2" onSubmit={handleSubmit}>
-        <h3>Create Your Ticket</h3>
+        <h3>{EDITMODE ? "Edit Your Ticket" : "Create Your Ticket"}</h3>
         <label htmlFor="title">Title</label>
         <input
           type="text"
@@ -152,7 +179,9 @@ const TicketForm = (props: Props) => {
           <option value="in progress">In Progress</option>
           <option value="done">Done</option>
         </select>
-        <button className="btn text-default-text">Submit Ticket</button>
+        <button className="btn text-default-text">
+          {EDITMODE ? "Edit Ticket" : "Create Ticket"}
+        </button>
       </form>
     </div>
   );

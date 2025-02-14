@@ -4,6 +4,7 @@ import PriorityDisplay from "./PriorityDisplay";
 import ProgressDisplay from "./ProgressDisplay";
 import StatusDisplay from "./StatusDisplay";
 import { Ticket } from "../page";
+import Link from "next/link";
 
 type Props = {
   ticket: Ticket;
@@ -34,19 +35,21 @@ const TicketCard = ({ ticket }: Props) => {
           <DeleteBlock id={ticket._id} />
         </div>
       </div>
-      <h4>{ticket.title}</h4>
-      <hr className="h-px border-0 bg-page mb-2" />
-      <p className="whitespace-pre-wrap pt-1">{ticket.description}</p>
-      <div className="flex-grow"></div>
-      <div className="flex mt-2">
-        <div className="flex flex-col">
-          <p className="text-sm my-1">{formatTimestamp(ticket.createdAt)}</p>
-          <ProgressDisplay progress={ticket.progress} />
+      <Link href={`/TicketPage/${ticket._id}`}>
+        <h4>{ticket.title}</h4>
+        <hr className="h-px border-0 bg-page mb-2" />
+        <p className="whitespace-pre-wrap pt-1">{ticket.description}</p>
+        <div className="flex-grow"></div>
+        <div className="flex mt-2">
+          <div className="flex flex-col">
+            <p className="text-sm my-1">{formatTimestamp(ticket.createdAt)}</p>
+            <ProgressDisplay progress={ticket.progress} />
+          </div>
+          <div className="flex ml-auto items-end">
+            <StatusDisplay status={ticket.status} />
+          </div>
         </div>
-        <div className="flex ml-auto items-end">
-          <StatusDisplay status={ticket.status} />
-        </div>
-      </div>
+      </Link>
     </div>
   );
 };
