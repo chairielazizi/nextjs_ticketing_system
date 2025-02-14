@@ -16,16 +16,18 @@ export interface Ticket {
 }
 
 const getAllTickets = async () => {
-  try {
-    const response = await fetch(`${API_URL}/api/tickets`, {
-      cache: "no-store",
-    });
-    const data = await response.json();
-    // console.log(data);
-    return data;
-  } catch (error) {
-    console.error("Failed to get tickets", error);
+  const response = await fetch(`${API_URL}/api/tickets`, {
+    cache: "no-store",
+  });
+  const data = await response.json();
+  // console.log(data);
+
+  if (!response.ok) {
+    console.error("Failed to get tickets");
+    return { tickets: [] };
   }
+
+  return data;
 };
 
 const Dashboard = async () => {

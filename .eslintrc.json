@@ -10,11 +10,10 @@
     //   }
     // }]
     "@typescript-eslint/no-empty-interface": [
-        "warn",
-        {
-          "allowSingleExtends": true,
-          "allowEmpty": true
-        }
-      ]
+      "warn",
+      {
+        "allowEmpty": true
+      }
+    ]
   }
 }
