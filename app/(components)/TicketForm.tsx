@@ -52,6 +52,7 @@ const TicketForm = ({ ticket }: Props) => {
       }
       router.refresh();
       router.push("/");
+      router.refresh();
     }
   };
 

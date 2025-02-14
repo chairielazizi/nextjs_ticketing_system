@@ -8,6 +8,7 @@ import Link from "next/link";
 
 type Props = {
   ticket: Ticket;
+  id: number;
 };
 
 const TicketCard = ({ ticket }: Props) => {
