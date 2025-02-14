@@ -1,0 +1,15 @@
+###
+POST http://localhost:3000/api/tickets
+Content-Type: application/json
+
+{
+    "title": "Laptop ada connectivity problem",
+    "description": "Laptop tak boleh connect internet",
+    "priority": 5,
+    "progress": 0,
+    "status": "open",
+    "active": true
+}
+
+###
+GET http://localhost:3000/api/tickets
