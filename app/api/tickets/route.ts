@@ -9,11 +9,12 @@ LoadDb();
 
 export async function POST(request: NextRequest) {
   try {
-    const { title, description, priority, progress, status, active } =
+    const { title, description, category, priority, progress, status, active } =
       await request.json();
     const ticket = await Ticket.create({
       title,
       description,
+      category,
       priority,
       progress,
       status,

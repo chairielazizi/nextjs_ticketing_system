@@ -21,6 +21,15 @@
   p{
     @apply text-lg text-default-text;
   }
+  form{
+    @apply rounded-xl p-4 border m-2
+  }
+  label{
+    @apply mt-4
+  }
+  input,select,textarea{
+    @apply m-1 rounded-sm bg-card p-1;
+  }
 }
 
 @layer components{

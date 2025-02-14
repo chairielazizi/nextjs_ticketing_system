@@ -4,6 +4,7 @@ const ticketSchema = new mongoose.Schema(
   {
     title: String,
     description: String,
+    category: String,
     priority: Number,
     progress: Number,
     status: String,
