@@ -1,11 +1,18 @@
 import React from "react";
-import { HiXCircle } from "react-icons/hi2";
+import {
+  HiXCircle,
+  HiArchiveBoxXMark,
+  HiXMark,
+  HiOutlineXCircle,
+} from "react-icons/hi2";
 
 type Props = {};
 
 const DeleteBlock = (props: Props) => {
   return (
-    <HiXCircle className="text-red-700 hover:cursor-pointer hover:text-red-400" />
+    <HiXCircle className="text-red-600 hover:cursor-pointer hover:text-red-500 text-xl" />
+    // <HiArchiveBoxXMark className="text-red-600 hover:cursor-pointer hover:text-red-400" />
+    // <HiXMark className="text-red-600 hover:cursor-pointer hover:text-red-500" />
   );
 };
 
