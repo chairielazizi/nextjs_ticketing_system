@@ -1,6 +1,6 @@
 # Ticketing System
 
-A simple notes web app built using MERN stack (MongoDB, Express.js, React JS, Node.js)
+A mockup ticketing system web app built using Next JS, MongoDB, Tailwind CSS and Typescript.
 
 ## Hosted Website link:
 
