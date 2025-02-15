@@ -1,3 +1,18 @@
+# Ticketing System
+
+A simple notes web app built using MERN stack (MongoDB, Express.js, React JS, Node.js)
+
+## Hosted Website link:
+
+https://nextjs-ticketing-system.onrender.com/
+
+### Screenshots
+
+| ![screenshot](https://raw.githubusercontent.com/chairielazizi/nextjs_ticketing_system/master/screenshots/home.png) Home | ![screenshot](https://raw.githubusercontent.com/chairielazizi/nextjs_ticketing_system/master/screenshots/form.png) Create/Edit Ticket |
+| ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+
+---
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
